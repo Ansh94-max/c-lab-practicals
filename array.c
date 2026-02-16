@@ -7,9 +7,9 @@ int main()
     {
         printf("\n0.exit ");
         printf("\n1.create data");
-        printf("\n1.display data");
-        printf("\n1.create data");
-        printf("enter your choice:");
+        printf("\n2.display data");
+
+        printf("\nenter your choice:");
         scanf("%d", &choice);
 
         switch (choice)
