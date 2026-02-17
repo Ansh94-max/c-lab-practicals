@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 int main(){
-    int arr[20], n = 0, choice, add_ele, position, new_value;
+    int arr[20], n = 0, choice, add_ele, position, new_value, temp;
+
     do{
         printf("\n0. Exit");
         printf("\n1. Create data");
@@ -12,6 +13,8 @@ int main(){
         printf("\n6. Update the value at specific position");
         printf("\n7. Delete the value at specific position");
         printf("\n8. Insert the value at specific position");
+        printf("\n9. Display the reverse elements of array");
+        printf("\n10. Sort an array");
 
         printf("\nEnter your choice: ");
         scanf("%d", &choice);
@@ -133,6 +136,33 @@ int main(){
                 arr[position - 1] = new_value;
                 n++;
                 printf("\nElement inserted successfully!");
+            }
+            break;
+
+        case 9:
+            if(n == 0){
+                printf("\nNo data available.");
+            }else{
+                printf("\nReverse elements are: ");
+                for(int i = n - 1; i >= 0; i--)
+                    printf("%d ", arr[i]);
+            }
+            break;
+
+        case 10:
+            if(n == 0){
+                printf("\nNo data available.");
+            }else{
+                for(int i = 0; i < n - 1; i++){
+                    for(int j = 0; j < n - i - 1; j++){
+                        if(arr[j] > arr[j + 1]){
+                            temp = arr[j];
+                            arr[j] = arr[j + 1];
+                            arr[j + 1] = temp;
+                        }
+                    }
+                }
+                printf("\narray sorted successfully");
             }
             break;
 
