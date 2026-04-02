@@ -48,17 +48,17 @@
 // }
 
 // reverse a string
-// #include<stdio.h>
+#include<stdio.h>
 
-// int main(){
-//     char str[] = "Ansh";
-//     int len = strlen(str);
+int main(){
+    char str[] = "Ansh";
+    int len = strlen(str);
 
-//     for(int i = len - 1; i >= 0; i--) {
-//         printf("%c", str[i]);
-//     }
-//      return 0;
-// }
+    for(int i = len - 1; i >= 0; i--) {
+        printf("%c", str[i]);
+    }
+     return 0;
+}
 
 // concatenate a string
 #include <stdio.h>
