@@ -398,3 +398,25 @@
 //     return 0;
 // }
 
+// armstrong number
+#include <stdio.h>
+
+int main(){
+    int n, sum=0, r;
+    printf("enter a number:");
+    scanf("%d", &n);
+    int temp = n;
+    while(n>0){
+        r = n%10;
+        sum += r*r*r;
+        n /= 10;
+    }
+    if(sum == temp){
+        printf("armstrong number");
+    }
+    else{
+        printf("not armstrong number");
+    }
+    return 0;
+}
+
