@@ -398,25 +398,17 @@
 //     return 0;
 // }
 
-// armstrong number
 #include <stdio.h>
-
-int main(){
-    int n, sum=0, r;
-    printf("enter a number:");
-    scanf("%d", &n);
-    int temp = n;
-    while(n>0){
-        r = n%10;
-        sum += r*r*r;
-        n /= 10;
-    }
-    if(sum == temp){
-        printf("armstrong number");
-    }
-    else{
-        printf("not armstrong number");
-    }
+int main() {
+    char name[100];
+    int roll_no;
+    printf("Enter your name: ");
+    scanf("%s", name);
+    printf("Enter your roll number: ");
+    scanf("%d", &roll_no);
+    printf("You entered: %s, %d\n", name, roll_no);
     return 0;
 }
+
+
 

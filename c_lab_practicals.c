@@ -59,11 +59,10 @@
 // #include <stdio.h>
 // int main() {
 //     int x = 5, y = 10, temp;
-    
 //     // Using temp variable
 //     temp = x; x = y; y = temp;
 //     printf("After swap with temp: x=%d, y=%d\n", x, y);
-    
+
 //     // Without temp variable
 //     x = x + y; y = x - y; x = x - y;
 //     printf("After swap without temp: x=%d, y=%d\n", x, y);
@@ -75,17 +74,17 @@
 //     int a, b, c, max;
 //     printf("Enter three numbers: ");
 //     scanf("%d %d %d", &a, &b, &c);
-    
+
 //     // Using ternary operator
 //     max = (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);
 //     printf("Greatest using ternary: %d\n", max);
-    
+
 //     // Using if-else
 //     if (a >= b && a >= c) max = a;
 //     else if (b >= a && b >= c) max = b;
 //     else max = c;
 //     printf("Greatest using if-else: %d\n", max);
-    
+
 //     return 0;
 // }
 
@@ -101,7 +100,7 @@
 //             printf("Vowel\n"); break;
 //         default: printf("Consonant\n");
 //     }
-    
+
 //     printf("Enter a number: ");
 //     scanf("%d", &num);
 //     switch(num > 0 ? 1 : (num < 0 ? -1 : 0)) {
@@ -154,7 +153,6 @@
 
 //     return 0;
 // }
-
 
 // #include <stdio.h>
 // int main() {
@@ -280,10 +278,10 @@
 
 // int main() {
 //     int x = 5, y = 10;
-    
+
 //     swapValue(x, y);
 //     printf("After swapValue in main: x=%d, y=%d\n", x, y);
-    
+
 //     swapReference(&x, &y);
 //     printf("After swapReference in main: x=%d, y=%d\n", x, y);
 //     return 0;
@@ -371,12 +369,12 @@
 //     printf("Enter rows, cols for A: "); scanf("%d %d", &r1, &c1);
 //     printf("Enter rows, cols for B: "); scanf("%d %d", &r2, &c2);
 //     if (c1 != r2) { printf("Cannot multiply\n"); return 0; }
-    
+
 //     printf("Enter A:\n");
 //     for(int i=0; i<r1; i++) for(int j=0; j<c1; j++) scanf("%d", &a[i][j]);
 //     printf("Enter B:\n");
 //     for(int i=0; i<r2; i++) for(int j=0; j<c2; j++) scanf("%d", &b[i][j]);
-    
+
 //     for(int i=0; i<r1; i++) {
 //         for(int j=0; j<c2; j++) {
 //             c[i][j] = 0;
@@ -398,9 +396,9 @@
 //     printf("Enter rows and cols: "); scanf("%d %d", &r, &c);
 //     printf("Enter matrix elements:\n");
 //     for(int i=0; i<r; i++) for(int j=0; j<c; j++) scanf("%d", &a[i][j]);
-    
+
 //     for(int i=0; i<r; i++) for(int j=0; j<c; j++) trans[j][i] = a[i][j];
-    
+
 //     printf("Transpose of the Matrix:\n");
 //     for(int i=0; i<c; i++) {
 //         for(int j=0; j<r; j++) printf("%d ", trans[i][j]);
@@ -409,30 +407,60 @@
 //     return 0;
 // }
 
+// #include <stdio.h>
+
+// int factorial(int n) {
+//     if (n <= 1) return 1;
+//     return n * factorial(n - 1);
+// }
+
+// int main() {
+//     int n;
+//     printf("Enter a number: "); scanf("%d", &n);
+//     printf("Factorial of %d is %d\n", n, factorial(n));
+//     return 0;
+// }
+
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
-int factorial(int n) {
-    if (n <= 1) return 1;
-    return n * factorial(n - 1);
-}
+int main()
+{
+    FILE *fp = fopen("input.txt", "w");
+    if (!fp)
+        return 1;
+    fprintf(fp, "Hi I am Ansh , this is Ansh file of c lab practicals, and this is Ansh's last program.\n");
+    fclose(fp);
 
-int main() {
-    int n;
-    printf("Enter a number: "); scanf("%d", &n);
-    printf("Factorial of %d is %d\n", n, factorial(n));
+    char oldWord[] = "Ansh";
+    char newWord[] = "Ayush";
+    char buffer[1000], output[1000];
+    int appearances = 0;
+
+    fp = fopen("input.txt", "r");
+    FILE *ft = fopen("temp.txt", "w");
+
+    while (fgets(buffer, sizeof(buffer), fp))
+    {
+        char *pos, *ptr = buffer;
+        output[0] = '\0';
+        while ((pos = strstr(ptr, oldWord)) != NULL)
+        {
+            strncat(output, ptr, pos - ptr);
+            strcat(output, newWord);
+            ptr = pos + strlen(oldWord);
+            appearances++;
+        }
+        strcat(output, ptr);
+        fputs(output, ft);
+    }
+    fclose(fp);
+    fclose(ft);
+
+    remove("input.txt");
+    rename("temp.txt", "input.txt");
+
+    printf("Replaced %d appearances in input.txt.\n", appearances);
     return 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }

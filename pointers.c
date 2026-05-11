@@ -47,85 +47,86 @@
 // }
 
 // comparison pointers
-#include <stdio.h>
+// #include <stdio.h>
 
-int main()
-{
-    // declaring array
-    int arr[5];
+// int main()
+// {
+//     // declaring array
+//     int arr[5];
 
-    // declaring pointer to array name
-    // Note: In strict C, &arr is type 'int (*)[5]', but points to the same location
-    int *ptr1 = (int *)&arr; 
+//     // declaring pointer to array name
+//     // Note: In strict C, &arr is type 'int (*)[5]', but points to the same location
+//     int *ptr1 = (int *)&arr; 
 
-    // declaring pointer to first element
-    int *ptr2 = &arr[0];
+//     // declaring pointer to first element
+//     int *ptr2 = &arr[0];
 
-    if (ptr1 == ptr2) {
-        printf("Pointer to Array Name and First Element \nare Equal.");
-    }
-    else {
-        printf("Pointer to Array Name and First Element \nare not Equal.");
-    }
+//     if (ptr1 == ptr2) {
+//         printf("Pointer to Array Name and First Element \nare Equal.");
+//     }
+//     else {
+//         printf("Pointer to Array Name and First Element \nare not Equal.");
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
 
 // null pointer
-#include <stdio.h>
+// #include <stdio.h>
 
-int main()
-{
-    // 1. Initialize a pointer to NULL
-    int* ptr = NULL;
+// int main()
+// {
+//     // 1. Initialize a pointer to NULL
+//     int* ptr = NULL;
 
-    // 2. Check if the pointer is NULL
-    if (ptr == NULL) {
-        printf("The pointer is NULL\n");
-    }
-    else {
-        printf("The pointer is not NULL\n");
-    }
+//     // 2. Check if the pointer is NULL
+//     if (ptr == NULL) {
+//         printf("The pointer is NULL\n");
+//     }
+//     else {
+//         printf("The pointer is not NULL\n");
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
 // pointer to element
-#include <stdio.h>
+// #include <stdio.h>
 
-int main() {
-    int arr[3] = {10, 20, 30};
+// int main() {
+//     int arr[3] = {10, 20, 30};
 
-    printf("%d\n", arr[0]);      // Output: 10
-    printf("%d\n", *(arr));      // Output: 10
+//     printf("%d\n", arr[0]);      // Output: 10
+//     printf("%d\n", *(arr));      // Output: 10
 
-    printf("%d\n", arr[1]);      // Output: 20
-    printf("%d\n", *(arr + 1));  // Output: 20
+//     printf("%d\n", arr[1]);      // Output: 20
+//     printf("%d\n", *(arr + 1));  // Output: 20
 
-    return 0;
-}
-
-// pointer to whole array
-#include <stdio.h>
-
-int main() {
-    int arr[3] = {5, 10, 15};
-    int *ptr = arr;
-
-    printf("%d\n", ptr[0]);  // 15
-    printf("%d\n", *(ptr + 2)); // 15
-
-    return 0;
-}
+//     return 0;
+// }
 
 // pointer to whole array
-#include <stdio.h>
-int main() {
-int arr[3] = {5, 10, 15};
-int (*ptr)[3] = &arr;
+// #include <stdio.h>
 
-printf("%d\n", (*ptr)[0]);  // 5
-printf("%d\n", (*ptr)[1]);  // 10
-printf("%d\n", (*ptr)[2]);
-  // 15       
-return 0;
-}
+// int main() {
+//     int arr[3] = {5, 10, 15};
+//     int *ptr = arr;
+
+//     printf("%d\n", ptr[0]);  // 15
+//     printf("%d\n", *(ptr + 2)); // 15
+
+//     return 0;
+// }
+
+// pointer to whole array
+// #include <stdio.h>
+// int main() {
+// int arr[3] = {5, 10, 15};
+// int (*ptr)[3] = &arr;
+
+// printf("%d\n", (*ptr)[0]);  // 5
+// printf("%d\n", (*ptr)[1]);  // 10
+// printf("%d\n", (*ptr)[2]);
+//   // 15       
+// return 0;
+// }
+

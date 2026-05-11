@@ -81,28 +81,72 @@
 // 
 
 //smart parking fee
-#include <stdio.h>
+// #include <stdio.h>
 
-int main(){
-    int n, fee=0;
-    scanf("%d",&n);
-    if(n==0)
-        printf("0");
+// int main(){
+//     int n, fee=0;
+//     scanf("%d",&n);
+//     if(n==0)
+//         printf("0");
 
 
-    else if(n<2){
-        fee = 20;
-        printf("%d", fee);
-    }
-    else if(n>=2 && n<=5){
-        fee = (n-2)*15 + 40;
-        printf("%d", fee);
-    }
-    else{
-        fee = 85+(n-5)*10;
-        printf("%d", fee);
-    }
+//     else if(n<2){
+//         fee = 20;
+//         printf("%d", fee);
+//     }
+//     else if(n>=2 && n<=5){
+//         fee = (n-2)*15 + 40;
+//         printf("%d", fee);
+//     }
+//     else{
+//         fee = 85+(n-5)*10;
+//         printf("%d", fee);
+//     }
 
     
+//     return 0;
+// }
+
+// find third smaallest number in an array without sorting and temperarary array . give me a easy code of beginner level
+#include <stdio.h>
+
+int main() {
+    int arr[100], n;
+    int first, second, third;
+
+    printf("enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("enter elements:\n");
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // find smallest
+    first = arr[0];
+    for(int i=1;i<n;i++) {
+        if(arr[i] < first) {
+            first = arr[i];
+        }
+    }
+
+    // find second smallest
+    second = 100000;
+    for(int i=0;i<n;i++) {
+        if(arr[i] > first && arr[i] < second) {
+            second = arr[i];
+        }
+    }
+
+    // find third smallest
+    third = 100000;
+    for(int i=0;i<n;i++) {
+        if(arr[i] > second && arr[i] < third) {
+            third = arr[i];
+        }
+    }
+
+    printf("Third smallest = %d", third);
+
     return 0;
 }
